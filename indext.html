@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="KabarKini - portal berita Indonesia dan internasional.">
+  <title>KabarKini — Berita Indonesia & Dunia</title>
+  <style>
+    :root {
+      --red: #c92332;
+      --bg: #f5f7fa;
+      --card: #ffffff;
+      --text: #192433;
+      --muted: #687586;
+      --line: #e1e6ed;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    header {
+      background: var(--card);
+      border-bottom: 1px solid var(--line);
+    }
+    .wrap { max-width: 1100px; margin: auto; padding: 18px; }
+    .brand { color: var(--red); font-size: 30px; font-weight: 800; }
+    .brand span { color: var(--text); }
+    .tagline { color: var(--muted); font-size: 13px; margin-top: 5px; }
+    .search { margin-top: 18px; display: flex; gap: 8px; }
+    input {
+      min-width: 0; flex: 1; padding: 12px;
+      border: 1px solid var(--line); border-radius: 9px;
+      font-size: 15px;
+    }
+    button {
+      cursor: pointer; border: 0; border-radius: 8px;
+      padding: 10px 14px; background: var(--red);
+      color: white; font-weight: 700;
+    }
+    nav { display: flex; gap: 9px; flex-wrap: wrap; margin-top: 15px; }
+    nav button { background: #f0e5e6; color: #8c1c28; }
+    nav button.active { background: var(--red); color: white; }
+    .hero {
+      margin: 22px 0; padding: 28px; border-radius: 16px;
+      color: white;
+      background: linear-gradient(120deg, #8d1c2a, #e46c50);
+    }
+    .hero h1 { font-size: clamp(27px, 5vw, 42px); margin: 12px 0; }
+    .hero p { line-height: 1.7; max-width: 650px; }
+    .label { font-size: 12px; font-weight: 800; letter-spacing: 1px; }
+    .section-title { margin: 28px 0 15px; }
+    .grid {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: 12px; padding: 18px;
+    }
+    .category { color: var(--red); font-size: 12px; font-weight: 800; }
+    .card h3 { line-height: 1.4; margin: 10px 0; }
+    .card p { color: var(--muted); font-size: 14px; line-height: 1.7; }
+    .source { color: var(--muted); font-size: 12px; margin-top: 12px; }
+    .ad {
+      text-align: center; padding: 22px; margin: 24px 0;
+      border: 1px dashed #b8c0ca; border-radius: 10px;
+      color: var(--muted); background: var(--card); font-size: 13px;
+    }
+    .note {
+      margin: 24px 0; padding: 14px; border-radius: 9px;
+      background: #fff2d8; color: #694b14; font-size: 13px; line-height: 1.7;
+    }
+    footer {
+      margin-top: 35px; padding: 25px 18px;
+      background: var(--card); border-top: 1px solid var(--line);
+      color: var(--muted); font-size: 13px; line-height: 1.8;
+    }
+    footer a { color: var(--red); }
+    @media (max-width: 750px) {
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 500px) {
+      .grid { grid-template-columns: 1fr; }
+      .hero { padding: 22px; }
+      .brand { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="brand">Kabar<span>Kini</span></div>
+      <div class="tagline">Ringkas · Relevan · Berita Indonesia dan Dunia</div>
+      <div class="search">
+        <input id="search" type="search" placeholder="Cari berita..." aria-label="Cari berita">
+        <button id="searchBtn">Cari</button>
+      </div>
+      <nav id="filters">
+        <button class="active" data-cat="Semua">Semua</button>
+        <button data-cat="Indonesia">Indonesia</button>
+        <button data-cat="Internasional">Internasional</button>
+        <button data-cat="Teknologi">Teknologi</button>
+        <button data-cat="Bisnis">Bisnis</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="label">SELAMAT DATANG DI KABARKINI</div>
+      <h1>Berita pilihan, lebih mudah dipahami.</h1>
+      <p>Ikuti perkembangan Indonesia dan dunia dalam satu tempat. Kami akan menghubungkan sumber berita dan pembaruan otomatis pada tahap berikutnya.</p>
+    </section>
+
+    <div class="ad">
+      <strong>RUANG IKLAN</strong><br>
+      Slot iklan contoh — belum terhubung ke penyedia iklan.
+    </div>
+
+    <h2 class="section-title" id="heading">Berita pilihan</h2>
+    <p id="count">Artikel contoh untuk pengujian website.</p>
+    <section class="grid" id="articles"></section>
+
+    <div class="note">
+      <strong>Informasi penting:</strong> berita yang tampil saat ini adalah contoh demonstrasi, bukan berita terkini. Pembaruan RSS otomatis dan iklan belum diaktifkan.
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <strong>KabarKini</strong><br>
+      Portal berita Indonesia dan internasional.<br>
+      <a href="https://www.antaranews.com/" target="_blank" rel="noopener">ANTARA News</a> ·
+      <a href="https://www.bbc.com/news" target="_blank" rel="noopener">BBC News</a><br>
+      <p>© 2026 KabarKini. Tautan di atas adalah contoh sumber; artikel contoh di halaman ini bukan kutipan berita dari sumber tersebut.</p>
+    </div>
+  </footer>
+
+  <script>
+    const data = [
+      {
+        cat: "Indonesia",
+        title: "Memahami perkembangan berita nasional",
+        summary: "Contoh tampilan untuk berita dalam negeri. Nantinya, bagian ini akan diisi berdasarkan sumber yang diizinkan, disertai tanggal dan tautan sumber asli.",
+        source: "Artikel contoh"
+      },
+      {
+        cat: "Internasional",
+        title: "Mengikuti peristiwa penting di dunia",
+        summary: "Contoh tampilan berita internasional. Ringkasan aktual akan ditambahkan setelah feed berita yang sesuai berhasil dihubungkan.",
+        source: "Artikel contoh"
+      },
+      {
+        cat: "Teknologi",
+        title: "Teknologi dan perubahan kehidupan sehari-hari",
+        summary: "Contoh kategori teknologi untuk menguji tampilan kartu, pencarian, dan penyaringan berita.",
+        source: "Artikel contoh"
+      },
+      {
+        cat: "Bisnis",
+        title: "Mengenal perkembangan dunia usaha",
+        summary: "Contoh kategori bisnis. Data berita sungguhan belum terhubung ke situs ini.",
+        source: "Artikel contoh"
+      },
+      {
+        cat: "Indonesia",
+        title: "Pentingnya memeriksa sumber informasi",
+        summary: "Periksa tanggal, sumber, dan konteks informasi sebelum membagikannya. Ini adalah teks contoh untuk pengujian halaman.",
+        source: "Artikel contoh"
+      },
+      {
+        cat: "Internasional",
+        title: "Memahami berita global dari berbagai sumber",
+        summary: "Berita internasional nantinya akan ditampilkan bersama atribusi dan tautan ke penerbit aslinya.",
+        source: "Artikel contoh"
+      }
+    ];
+
+    let category = "Semua";
+    const list = document.getElementById("articles");
+    const search = document.getElementById("search");
+
+    function render() {
+      const q = search.value.trim().toLowerCase();
+      const filtered = data.filter(item =>
+        (category === "Semua" || item.cat === category) &&
+        (item.title + " " + item.summary + " " + item.cat)
+          .toLowerCase().includes(q)
+      );
+
+      document.getElementById("heading").textContent =
+        category === "Semua" ? "Berita pilihan" : "Berita " + category;
+      document.getElementById("count").textContent =
+        filtered.length + " artikel contoh ditampilkan";
+
+      list.replaceChildren();
+
+      if (!filtered.length) {
+        list.textContent = "Tidak ada artikel yang cocok dengan pencarian.";
+        return;
+      }
+
+      filtered.forEach(item => {
+        const card = document.createElement("article");
+        card.className = "card";
+
+        const cat = document.createElement("div");
+        cat.className = "category";
+        cat.textContent = item.cat;
+
+        const title = document.createElement("h3");
+        title.textContent = item.title;
+
+        const summary = document.createElement("p");
+        summary.textContent = item.summary;
+
+        const source = document.createElement("div");
+        source.className = "source";
+        source.textContent = item.source;
+
+        card.append(cat, title, summary, source);
+        list.appendChild(card);
+      });
+    }
+
+    document.getElementById("filters").addEventListener("click", event => {
+      const btn = event.target.closest("button[data-cat]");
+      if (!btn) return;
+      category = btn.dataset.cat;
+      document.querySelectorAll("#filters button").forEach(button => {
+        button.classList.toggle("active", button === btn);
+      });
+      render();
+    });
+
+    document.getElementById("searchBtn").addEventListener("click", render);
+    search.addEventListener("input", render);
+    render();
+  </script>
+</body>
+</html>
